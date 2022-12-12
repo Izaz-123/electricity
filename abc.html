@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<style>
+	body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+#full {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+	
+	</style>
+</head>
+<body>
+<p id="demo"></p>
+
+<script>
+// Create an Array:
+const cars = ["Apple", "Orange", "Mango"];
+
+cars[0] = "Toyota";
+cars.push("Audi");
+
+document.getElementById("demo").innerHTML = cars; 
+</script>
+    <div id="timeDiv">
+       
+		<input type="button" value="startClock" onclick="startClock">
+		<input type="button" value="stopClock" onclick="stopClock">
+
+    </div> 
+<div id="full"></div>	
+</body>
+</html>
+<script type="text/javascript">
+    setInterval(getCurrentDateTime,1000);
+    function getCurrentDateTime()
+    {
+        document.getElementById("timeDiv").innerHTML=new Date()
+    }
+	var intervalid;
+	function startClock()
+	{
+	intervalid=setInterval(getCurrentDateTime,1000);
+	}
+	function stopClock()
+	{
+	clearInterval(intervalid);
+	}
+	var div = document.getElementById("full");
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+function changeColor(){
+  div.style.backgroundColor= getRandomColor();
+}
+
+setInterval(changeColor,1000);
+
+</script>
